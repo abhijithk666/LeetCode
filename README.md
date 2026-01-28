@@ -1,5 +1,3 @@
-Practicing DSA
-
 <!---LeetCode Topics Start-->
 # LeetCode Topics
 ## Math
