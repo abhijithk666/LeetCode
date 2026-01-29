@@ -1,4 +1,5 @@
 var romanToInt = function(s) {
+    let res = 0;
     const roman = {
         'I': 1,
         'V': 5,
@@ -8,12 +9,14 @@ var romanToInt = function(s) {
         'D': 500,
         'M': 1000
     };
-    
-    return s.split('').reduce((total, curr, i) => {
-        const currValue = roman[curr];
-        const nextValue = roman[s[i + 1]];
-        
-        // If current is less than next, subtract; otherwise add
-        return currValue < nextValue ? total - currValue : total + currValue;
-    }, 0);
+
+    for (let i = 0; i < s.length - 1; i++) {
+        if (roman[s[i]] < roman[s[i + 1]]) {
+            res -= roman[s[i]];
+        } else {
+            res += roman[s[i]];
+        }
+    }
+
+    return res + roman[s[s.length - 1]];    
 };
